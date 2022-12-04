@@ -1,7 +1,8 @@
+import pygame
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-import pygame
 
 class Scoreboard:
     def __init__(self, x, y, length, height):

@@ -1,10 +1,13 @@
 import pygame
+import requests
+from app import save_deaths
 from models.player import Player
 from models.scoreboard import Scoreboard
 from models.floor import floor
-from functions import draw, leave_bounds
+from functions import draw, leave_bounds, deaths
 from create_obstacle import create_obstacle
 from screen.start_screen import start_screen
+
 
 BLACK = (0, 0, 0)
 LIGHT_BLUE = (180, 181, 254)
@@ -13,7 +16,9 @@ GREEN = (153, 255, 153)
 LIGHT_PURPLE = (178, 102, 255)
 
 
+
 def main():
+    
     #Initialize pygame
     pygame.init()
 
@@ -65,8 +70,9 @@ def main():
 
         draw(window, list_of_floors, obstacles, user, score_board)
 
-        #print coordinates of the player
-        # print(user.x, user.y)
+        deaths(user, obstacles)
     
+    requests.get('http://localhost:5000/save_deaths/' + str(user.deaths))
+
 if __name__ == "__main__":
     main()

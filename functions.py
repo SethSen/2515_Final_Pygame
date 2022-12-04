@@ -6,6 +6,17 @@ BLUE = (0, 0, 255)
 GREEN = (153, 255, 153)
 LIGHT_PURPLE = (178, 102, 255)
 
+
+def deaths(user, enemy):
+     #Kill the player if they touch an obstacle
+    for i in enemy:
+        for obstacle in i:
+            if intersect(user, obstacle):
+                user.x = 65
+                user.y = 515
+                user.deaths += 1
+
+
 def run_game():
     #Window Size
     window = pygame.display.set_mode((1000,700))
@@ -133,22 +144,6 @@ def draw(window, list_of_floors, enemy, user, score_board):
 
     for obstacle in enemy[12]:
         obstacle.draw()
-
-    "Kill the player if they touch an obstacle"
-    for i in enemy:
-        for obstacle in i:
-            # print(obstacle)
-            if intersect(user, obstacle):
-                user.x = 65
-                user.y = 515
-                user.deaths += 1
-            else:
-                if intersect(user, obstacle):
-                    user.x = 870
-                    user.y = 370
-                    user.deaths += 1
-
-        
 
     user.draw()
 
