@@ -6,6 +6,20 @@ BLUE = (0, 0, 255)
 GREEN = (153, 255, 153)
 LIGHT_PURPLE = (178, 102, 255)
 
+def run_game():
+    #Window Size
+    window = pygame.display.set_mode((1000,700))
+
+    #Create a name for the window
+    pygame.display.set_caption("Impossible Maze Game")
+
+    # colour
+    window.fill(LIGHT_BLUE)
+
+    #Initialize font
+    pygame.font.init()
+
+
 def intersect(rect1, rect2):
     if abs((rect1.x + rect1.length/2) - (rect2.x + rect2.length/2)) < 0.5 * (rect1.length + rect2.length):
         if abs((rect1.y + rect1.height/2) - (rect2.y + rect2.height/2)) < 0.5 * (rect1.height + rect2.height):

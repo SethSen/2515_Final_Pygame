@@ -1,11 +1,10 @@
 import pygame
-from models.maze import Rect
 from models.player import Player
 from models.scoreboard import Scoreboard
-from models.obstacle import Obstacle
 from models.floor import floor
 from functions import draw, leave_bounds
 from create_obstacle import create_obstacle
+from screen.start_screen import start_screen
 
 BLACK = (0, 0, 0)
 LIGHT_BLUE = (180, 181, 254)
@@ -18,17 +17,11 @@ def main():
     #Initialize pygame
     pygame.init()
 
-    #Create a name for the window
-    pygame.display.set_caption("Impossible Maze Game")
+    #Start screen
+    start_screen()
 
     #Window Size
     window = pygame.display.set_mode((1000,700))
-
-    # colour
-    window.fill(LIGHT_BLUE)
-
-    #Initialize font
-    pygame.font.init()
 
     #Initiazlize the player
     user = Player(65, 515)
