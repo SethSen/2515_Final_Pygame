@@ -40,5 +40,3 @@ class Obstacle():
             elif self.x > bound_two:
                 self.direction = "left"
 
-def enemy():
-    
